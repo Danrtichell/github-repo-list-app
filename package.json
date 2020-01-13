@@ -4,7 +4,13 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "eclint": "eclint fix '*.js' && eclint fix 'src/**/*.js'",
+    "lint": "eslint src/**/*.js",
+    "preinstall": "npm run generate-image",
+    "generate-image": "node ./assets/generate-image.js",
+    "clean-android": "cd android && ./gradlew clean && cd ..",
+    "run-android": "react-native run-android"
   },
   "rnpm": {
     "assets": [

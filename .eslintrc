@@ -1,0 +1,32 @@
+{
+  "plugins": ["react", "react-native", "jsx-control-statements"],
+  "extends": [
+    "airbnb",
+    "plugin:jsx-control-statements/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-use-before-define": ["error", { "functions": false, "classes": false }],
+    "keyword-spacing": "off",
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "react/jsx-indent": ["error", 2],
+    "react/jsx-indent-props": ["error", 2],
+    "comma-dangle": "off",
+    "arrow-parens": "off",
+    "padded-blocks": "off",
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "implicit-arrow-linebreak": "off",
+    "react/jsx-no-undef": [2, { "allowGlobals": true }],
+    "react/prop-types": ["error", { "ignore": ["navigation"] }],
+    "react/jsx-one-expression-per-line": "off",
+    "react/prefer-stateless-function:": "off",
+    "react/destructuring-assignment": "off",
+    "func-names": "off",
+    "no-underscore-dangle": "off"
+  },
+  "env": {
+    "react-native/react-native": true
+  },
+  "parser": "babel-eslint"
+}
