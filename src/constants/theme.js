@@ -29,30 +29,18 @@ const sizes = {
   header: 16,
   body: 14,
   caption: 12,
+  small: 10,
 };
 
 const fontSizes = {
-  h1: {
-    fontSize: sizes.h1,
-  },
-  h2: {
-    fontSize: sizes.h2,
-  },
-  h3: {
-    fontSize: sizes.h3,
-  },
-  header: {
-    fontSize: sizes.header,
-  },
-  title: {
-    fontSize: sizes.title,
-  },
-  body: {
-    fontSize: sizes.body,
-  },
-  caption: {
-    fontSize: sizes.caption,
-  },
+  h1: sizes.h1,
+  h2: sizes.h2,
+  h3: sizes.h3,
+  header: sizes.header,
+  title: sizes.title,
+  body: sizes.body,
+  caption: sizes.caption,
+  small: sizes.small,
 };
 
 const fonts = {

@@ -1,11 +1,16 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+
+import { Block, Text } from '@grl/components';
 
 const LoadingScreen = () => {
   return (
-    <View>
-      <Text>Loading Screen</Text>
-    </View>
+    <Block>
+      <Block center middle>
+        <Text h1 primary>
+          Loading Screen
+        </Text>
+      </Block>
+    </Block>
   );
 };
 
