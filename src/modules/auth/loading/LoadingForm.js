@@ -1,7 +1,7 @@
 import React from 'react';
 import { Block, Text } from '@grl/components';
 
-export default LoadingForm = () => {
+function LoadingForm() {
   return (
     <Block>
       <Block center middle>
@@ -11,4 +11,6 @@ export default LoadingForm = () => {
       </Block>
     </Block>
   );
-};
+}
+
+export default LoadingForm;

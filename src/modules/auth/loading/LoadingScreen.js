@@ -5,7 +5,7 @@ import { makeSelectIsRehydrated } from '@grl/redux/selectors/persist/rehydrateSe
 import { makeSelectToken } from '@grl/redux/selectors/persist/tokenSelector';
 import LoadingForm from './LoadingForm';
 
-export default LoadingScreen = ({ navigation }) => {
+function LoadingScreen({ navigation }) {
   const ref = useRef();
   const isRehydrated = useSelector(makeSelectIsRehydrated());
   const token = useSelector(makeSelectToken());
@@ -22,7 +22,9 @@ export default LoadingScreen = ({ navigation }) => {
         navigation.navigate('Auth');
       }
     }
-  }, [isRehydrated]);
+  }, [isRehydrated, navigation, token]);
 
   return <LoadingForm />;
-};
+}
+
+export default LoadingScreen;
