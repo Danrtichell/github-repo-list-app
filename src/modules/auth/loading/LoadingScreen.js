@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { makeSelectIsRehydrated } from '@grl/redux/selectors/persist/rehydrateSelector';
 import { makeSelectToken } from '@grl/redux/selectors/persist/tokenSelector';
-import { Block, Text } from '@grl/components';
+import LoadingForm from './LoadingForm';
 
 export default LoadingScreen = ({ navigation }) => {
   const ref = useRef();
@@ -24,13 +24,5 @@ export default LoadingScreen = ({ navigation }) => {
     }
   }, [isRehydrated]);
 
-  return (
-    <Block>
-      <Block center middle>
-        <Text h1 primary>
-          Loading Screen
-        </Text>
-      </Block>
-    </Block>
-  );
+  return <LoadingForm />;
 };
