@@ -12,6 +12,8 @@ const colors = {
   white: '#FFFFFF',
   gray: '#9DA3B4',
   gray2: '#C5CCD6',
+  transparent: 'transparent',
+  manatee: '#8E8E93',
 };
 
 const sizes = {
