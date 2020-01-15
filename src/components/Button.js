@@ -19,7 +19,7 @@ const TouchableOpacity = styled.TouchableOpacity`
     shadow-radius: 10;
   `}
 
-  /* predefined styles colors for backgroundColor *//* color shortcuts */
+  /* predefined styles colors for backgroundColor */
   ${({ primary, theme }) =>
     primary &&
     `
