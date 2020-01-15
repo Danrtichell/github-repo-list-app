@@ -29,9 +29,21 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 25,
   },
+  listFooter: {
+    paddingVertical: 20,
+    borderTopWidth: 1,
+    borderColor: theme.colors.primary,
+  },
 });
 
-function RepoListItems({ isSearching, repoList }) {
+function RepoListItems({
+  isSearching,
+  isSearchingMore,
+  isRefreshing,
+  repoList,
+  handleSearchMore,
+  handleSearchRefresh,
+}) {
   return (
     <Choose>
       <When condition={!isSearching}>
@@ -78,6 +90,21 @@ function RepoListItems({ isSearching, repoList }) {
                 </Text>
               )
             }
+            ListFooterComponent={() => {
+              if (!isSearchingMore) return null;
+
+              return (
+                <Block style={styles.listFooter}>
+                  <ActivityIndicator animating size="large" />
+                </Block>
+              );
+            }}
+            refreshing={isRefreshing}
+            onRefresh={handleSearchRefresh}
+            onEndReached={() => {
+              handleSearchMore();
+            }}
+            onEndReachedThreshold={0.333}
           />
         </Block>
       </When>
@@ -90,8 +117,12 @@ function RepoListItems({ isSearching, repoList }) {
 
 RepoListItems.propTypes = {
   isSearching: PropTypes.bool.isRequired,
+  isSearchingMore: PropTypes.bool.isRequired,
+  isRefreshing: PropTypes.bool.isRequired,
   /* eslint-disable react/forbid-prop-types */
   repoList: PropTypes.array.isRequired,
+  handleSearchMore: PropTypes.func.isRequired,
+  handleSearchRefresh: PropTypes.func.isRequired,
 };
 
 export default RepoListItems;

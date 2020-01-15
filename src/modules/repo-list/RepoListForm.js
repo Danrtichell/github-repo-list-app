@@ -18,10 +18,14 @@ function RepoListForm({
   searchFocus,
   searchString,
   isSearching,
+  isSearchingMore,
+  isRefreshing,
   repoList,
   handleSearchFocus,
   setSearchString,
   handleSearching,
+  handleSearchMore,
+  handleSearchRefresh,
 }) {
   return (
     <Block>
@@ -37,7 +41,14 @@ function RepoListForm({
           handleSearching={handleSearching}
         />
       </Block>
-      <RepoListItems isSearching={isSearching} repoList={repoList} />
+      <RepoListItems
+        isSearching={isSearching}
+        isSearchingMore={isSearchingMore}
+        isRefreshing={isRefreshing}
+        repoList={repoList}
+        handleSearchMore={handleSearchMore}
+        handleSearchRefresh={handleSearchRefresh}
+      />
     </Block>
   );
 }
@@ -52,10 +63,14 @@ RepoListForm.propTypes = {
   searchFocus: PropTypes.object,
   searchString: PropTypes.string,
   isSearching: PropTypes.bool.isRequired,
+  isSearchingMore: PropTypes.bool.isRequired,
+  isRefreshing: PropTypes.bool.isRequired,
   repoList: PropTypes.array.isRequired,
   handleSearchFocus: PropTypes.func.isRequired,
   setSearchString: PropTypes.func.isRequired,
   handleSearching: PropTypes.func.isRequired,
+  handleSearchMore: PropTypes.func.isRequired,
+  handleSearchRefresh: PropTypes.func.isRequired,
 };
 
 export default RepoListForm;

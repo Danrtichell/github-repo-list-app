@@ -4,18 +4,25 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import {
   makeSelectRepoIsSearching,
+  makeSelectRepoIsSearchingMore,
+  makeSelectRepoIsRefreshing,
   makeSelectRepoList,
-  makeSelectErrMsg,
 } from '@grl/redux/selectors/repoSelector';
-import { searchRepoRequest } from '@grl/redux/ducks/repoRedux';
+import {
+  searchRepoRequest,
+  searchMoreRepoRequest,
+  searchRepoRefreshRequest,
+} from '@grl/redux/ducks/repoRedux';
 import RepoListForm from './RepoListForm';
 
 function RepoListScreen() {
   const [searchFocus] = useState(new Animated.Value(0.6));
   const [searchString, setSearchString] = useState(null);
   const isSearching = useSelector(makeSelectRepoIsSearching());
+  const isSearchingMore = useSelector(makeSelectRepoIsSearchingMore());
+  const isRefreshing = useSelector(makeSelectRepoIsRefreshing());
+
   const repoList = useSelector(makeSelectRepoList());
-  const errMsg = useSelector(makeSelectErrMsg());
   const dispatch = useDispatch();
 
   const handleSearchFocus = status => {
@@ -31,15 +38,31 @@ function RepoListScreen() {
     }
   };
 
+  const handleSearchMore = () => {
+    if (searchString) {
+      dispatch(searchMoreRepoRequest(searchString));
+    }
+  };
+
+  const handleSearchRefresh = () => {
+    if (searchString) {
+      dispatch(searchRepoRefreshRequest(searchString));
+    }
+  };
+
   return (
     <RepoListForm
       searchFocus={searchFocus}
       searchString={searchString}
       isSearching={isSearching}
+      isSearchingMore={isSearchingMore}
+      isRefreshing={isRefreshing}
       repoList={repoList}
       handleSearchFocus={handleSearchFocus}
       setSearchString={setSearchString}
       handleSearching={handleSearching}
+      handleSearchMore={handleSearchMore}
+      handleSearchRefresh={handleSearchRefresh}
     />
   );
 }
