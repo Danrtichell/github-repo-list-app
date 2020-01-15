@@ -1,4 +1,4 @@
-import { put, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest, delay } from 'redux-saga/effects';
 
 import {
   LOGIN_REQUEST,
@@ -8,8 +8,9 @@ import {
 
 import { navigate } from '@grl/lib/navigation';
 
-function* loginWorker(action) {
+function* loginWorker() {
   try {
+    yield delay(2000);
     yield put(loginSuccess({ access_token: '123456' }));
     yield navigate('App');
   } catch (error) {
