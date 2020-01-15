@@ -34,6 +34,7 @@ function RepoListSearch({
   searchString,
   handleSearchFocus,
   setSearchString,
+  handleSearching,
 }) {
   const isEditing = searchFocus && searchString;
 
@@ -47,6 +48,7 @@ function RepoListSearch({
         onBlur={() => handleSearchFocus(false)}
         onChangeText={text => setSearchString(text)}
         value={searchString}
+        onSubmitEditing={() => handleSearching()}
         onRightPress={() => (isEditing ? setSearchString(null) : null)}
         rightLabelStyle={styles.searchRight}
         rightContainerStyle={styles.searchIcon}
@@ -73,6 +75,7 @@ RepoListSearch.propTypes = {
   searchString: PropTypes.string,
   handleSearchFocus: PropTypes.func.isRequired,
   setSearchString: PropTypes.func.isRequired,
+  handleSearching: PropTypes.func.isRequired,
 };
 
 export default RepoListSearch;

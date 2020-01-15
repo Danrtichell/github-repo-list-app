@@ -17,8 +17,11 @@ const styles = StyleSheet.create({
 function RepoListForm({
   searchFocus,
   searchString,
+  isSearching,
+  repoList,
   handleSearchFocus,
   setSearchString,
+  handleSearching,
 }) {
   return (
     <Block>
@@ -31,9 +34,10 @@ function RepoListForm({
           searchString={searchString}
           handleSearchFocus={handleSearchFocus}
           setSearchString={setSearchString}
+          handleSearching={handleSearching}
         />
       </Block>
-      <RepoListItems />
+      <RepoListItems isSearching={isSearching} repoList={repoList} />
     </Block>
   );
 }
@@ -47,8 +51,11 @@ RepoListForm.propTypes = {
   /* eslint-disable react/forbid-prop-types */
   searchFocus: PropTypes.object,
   searchString: PropTypes.string,
+  isSearching: PropTypes.bool.isRequired,
+  repoList: PropTypes.array.isRequired,
   handleSearchFocus: PropTypes.func.isRequired,
   setSearchString: PropTypes.func.isRequired,
+  handleSearching: PropTypes.func.isRequired,
 };
 
 export default RepoListForm;

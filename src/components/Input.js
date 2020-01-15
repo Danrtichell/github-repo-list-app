@@ -32,6 +32,7 @@ function Input({
   onFocus,
   onBlur,
   onRightPress,
+  onSubmitEditing,
   rightLabelStyle,
   rightContainerStyle,
   style,
@@ -86,6 +87,7 @@ function Input({
         onChangeText={onChangeText}
         onFocus={onFocus}
         onBlur={onBlur}
+        onSubmitEditing={onSubmitEditing}
         style={style}
       />
       {renderRight()}
@@ -107,6 +109,7 @@ Input.defaultProps = {
   onFocus: () => {},
   onBlur: () => {},
   onRightPress: () => {},
+  onSubmitEditing: () => {},
   rightLabelStyle: {},
   rightContainerStyle: {},
   style: {},
@@ -126,6 +129,7 @@ Input.propTypes = {
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   onRightPress: PropTypes.func,
+  onSubmitEditing: PropTypes.func,
   rightLabelStyle: ViewPropTypes.style,
   rightContainerStyle: ViewPropTypes.style,
   style: ViewPropTypes.style,
