@@ -1,12 +1,18 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import RepoDetailsForm from './RepoDetailsForm';
 
-const RepoDetailsScreen = () => {
-  return (
-    <View>
-      <Text>Repo Details Screen</Text>
-    </View>
-  );
+function RepoDetailsScreen({ navigation }) {
+  const {
+    state: {
+      params: { item: repoDetails },
+    },
+  } = navigation;
+
+  return <RepoDetailsForm repoDetails={repoDetails} />;
+}
+
+RepoDetailsScreen.navigationOptions = {
+  header: null,
 };
 
 export default RepoDetailsScreen;

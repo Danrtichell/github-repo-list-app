@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { FlatList, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Block, Text } from '@grl/components';
 import { mocks, theme } from '@grl/constants';
+import { navigate } from '@grl/lib/navigation';
 
 const styles = StyleSheet.create({
   card: {
@@ -30,10 +31,11 @@ function RepoListItems() {
       <FlatList
         data={mocks.repoList}
         renderItem={({
+          item,
           item: { full_name: fullName, owner, description, language },
         }) => {
           return (
-            <TouchableOpacity onPress={() => null}>
+            <TouchableOpacity onPress={() => navigate('RepoDetails', { item })}>
               <Block column center left shadow style={styles.card}>
                 <Block flex={false} row left>
                   <Image
@@ -41,7 +43,7 @@ function RepoListItems() {
                     style={styles.avatar}
                   />
                   <Block>
-                    <Text black bold header right>
+                    <Text black bold header right numberOfLines={1}>
                       {fullName}
                     </Text>
                     <Text gray bold caption right>
