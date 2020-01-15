@@ -4,9 +4,11 @@ import { StyleSheet } from 'react-native';
 import { Block, Text } from '@grl/components';
 import { theme } from '@grl/constants';
 import RepoListSearch from './RepoListSearch';
+import RepoListItems from './RepoListItems';
 
 const styles = StyleSheet.create({
   header: {
+    marginTop: 10,
     paddingHorizontal: theme.sizes.base * 2,
     paddingBottom: theme.sizes.base * 2,
   },
@@ -31,6 +33,7 @@ function RepoListForm({
           setSearchString={setSearchString}
         />
       </Block>
+      <RepoListItems />
     </Block>
   );
 }
