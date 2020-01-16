@@ -32,7 +32,8 @@
     "react-native/no-single-element-style-arrays": 2,
     "import/no-extraneous-dependencies": ["error", { "packageDir": "./" }],
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
-    "react-hooks/exhaustive-deps": "warn" // Checks effect dependencies
+    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
+    "import/no-unresolved": [2, { "ignore": ["@grl"] }]
   },
   "env": {
     "react-native/react-native": true
