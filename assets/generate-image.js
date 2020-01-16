@@ -5,7 +5,7 @@ const { basename, extname, join } = require('path');
 
 readdir(join(__dirname, 'images'), (err, files) => {
   if (err) {
-    return console.log('Unable to scan directory: ' + err);
+    return console.log(`Unable to scan directory: ${err}`);
   }
 
   const mapped = files
@@ -13,10 +13,7 @@ readdir(join(__dirname, 'images'), (err, files) => {
     .reduce((result, file) => result.concat(imageAssociation(file)), [])
     .join(';\n');
 
-  const content = `
-import { Image } from 'react-native';
-${mapped}
-	`;
+  const content = `${mapped}`;
 
   writeFileSync(join(__dirname, 'images.js'), content);
 });

@@ -1,19 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  ActivityIndicator,
-  Keyboard,
-  KeyboardAvoidingView,
-  StyleSheet,
-} from 'react-native';
+import { ActivityIndicator, Keyboard, StyleSheet } from 'react-native';
 
-import { Block, Button, Input, Text } from '@grl/components';
+import {
+  Block,
+  Button,
+  Input,
+  KeyboardAnimatableView,
+  LocalImage,
+  Text,
+} from '@grl/components';
 import { theme } from '@grl/constants';
 
 const styles = StyleSheet.create({
   login: {
     flex: 1,
     justifyContent: 'center',
+  },
+  logo: {
+    resizeMode: 'contain',
+    width: 200,
+    height: 200,
+    marginTop: 80,
   },
   input: {
     borderRadius: 0,
@@ -30,11 +38,11 @@ function LoginForm({
   handleLogin,
 }) {
   return (
-    <KeyboardAvoidingView style={styles.login} behavior="padding">
+    <KeyboardAnimatableView style={styles.login}>
+      <Block center>
+        <LocalImage localSource="GithubLogo" style={styles.logo} />
+      </Block>
       <Block padding={[0, theme.sizes.base * 2]}>
-        <Text h1 bold>
-          Login
-        </Text>
         <Block middle>
           <Input
             email
@@ -70,7 +78,7 @@ function LoginForm({
           </Button>
         </Block>
       </Block>
-    </KeyboardAvoidingView>
+    </KeyboardAnimatableView>
   );
 }
 
