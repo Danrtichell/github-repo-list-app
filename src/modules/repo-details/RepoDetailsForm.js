@@ -93,7 +93,7 @@ function RepoDetailsForm({ repoDetails }) {
           style={styles.visitSite}
         >
           <Text bold white center>
-            VISIT SITE
+            VISIT REPO
           </Text>
         </Button>
       </Block>
