@@ -5,6 +5,7 @@ import { theme } from '@grl/constants';
 import { setTopLevelNavigator, dispatchChange } from '@grl/lib/navigation';
 import Navigation from './config/navigation';
 import configureStore from './config/store';
+
 const store = configureStore(() => {});
 
 export default () => (

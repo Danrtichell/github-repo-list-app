@@ -3,8 +3,58 @@ import { StyleSheet, View, Animated } from 'react-native';
 
 import { theme } from '@grl/constants';
 
+export const styles = StyleSheet.create({
+  block: {
+    flex: 1,
+  },
+  row: {
+    flexDirection: 'row',
+  },
+  column: {
+    flexDirection: 'column',
+  },
+  card: {
+    borderRadius: theme.sizes.radius,
+  },
+  center: {
+    alignItems: 'center',
+  },
+  middle: {
+    justifyContent: 'center',
+  },
+  left: {
+    justifyContent: 'flex-start',
+  },
+  right: {
+    justifyContent: 'flex-end',
+  },
+  top: {
+    justifyContent: 'flex-start',
+  },
+  bottom: {
+    justifyContent: 'flex-end',
+  },
+  shadow: {
+    shadowColor: theme.colors.black,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 13,
+    elevation: 2,
+  },
+  /* eslint-disable react-native/no-unused-styles */
+  primary: { backgroundColor: theme.colors.primary },
+  secondary: { backgroundColor: theme.colors.secondary },
+  tertiary: { backgroundColor: theme.colors.tertiary },
+  black: { backgroundColor: theme.colors.black },
+  white: { backgroundColor: theme.colors.white },
+  gray: { backgroundColor: theme.colors.gray },
+  gray2: { backgroundColor: theme.colors.gray2 },
+});
+
 export default class Block extends Component {
+  /* eslint-disable consistent-return */
   handleMargins() {
+    /* eslint-disable react/prop-types */
     const { margin } = this.props;
     if (typeof margin === 'number') {
       return {
@@ -50,6 +100,7 @@ export default class Block extends Component {
     }
   }
 
+  /* eslint-disable consistent-return */
   handlePaddings() {
     const { padding } = this.props;
     if (typeof padding === 'number') {
@@ -98,6 +149,7 @@ export default class Block extends Component {
 
   render() {
     const {
+      /* eslint-disable react/prop-types */
       flex,
       row,
       column,
@@ -145,6 +197,7 @@ export default class Block extends Component {
 
     if (animated) {
       return (
+        /* eslint-disable react/jsx-props-no-spreading */
         <Animated.View style={blockStyles} {...props}>
           {children}
         </Animated.View>
@@ -152,56 +205,10 @@ export default class Block extends Component {
     }
 
     return (
+      /* eslint-disable react/jsx-props-no-spreading */
       <View style={blockStyles} {...props}>
         {children}
       </View>
     );
   }
 }
-
-export const styles = StyleSheet.create({
-  block: {
-    flex: 1,
-  },
-  row: {
-    flexDirection: 'row',
-  },
-  column: {
-    flexDirection: 'column',
-  },
-  card: {
-    borderRadius: theme.sizes.radius,
-  },
-  center: {
-    alignItems: 'center',
-  },
-  middle: {
-    justifyContent: 'center',
-  },
-  left: {
-    justifyContent: 'flex-start',
-  },
-  right: {
-    justifyContent: 'flex-end',
-  },
-  top: {
-    justifyContent: 'flex-start',
-  },
-  bottom: {
-    justifyContent: 'flex-end',
-  },
-  shadow: {
-    shadowColor: theme.colors.black,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 13,
-    elevation: 2,
-  },
-  primary: { backgroundColor: theme.colors.primary },
-  secondary: { backgroundColor: theme.colors.secondary },
-  tertiary: { backgroundColor: theme.colors.tertiary },
-  black: { backgroundColor: theme.colors.black },
-  white: { backgroundColor: theme.colors.white },
-  gray: { backgroundColor: theme.colors.gray },
-  gray2: { backgroundColor: theme.colors.gray2 },
-});

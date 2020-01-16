@@ -12,9 +12,6 @@ const makeSelectIsLoadingLogin = () =>
   );
 
 const makeSelectErrMsg = () =>
-  createSelector(
-    selectErrMsg,
-    errMsgState => errMsgState
-  );
+  createSelector(selectErrMsg, errMsgState => errMsgState);
 
 export { makeSelectIsLoadingLogin, makeSelectErrMsg };
